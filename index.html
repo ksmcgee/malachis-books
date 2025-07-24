@@ -245,6 +245,49 @@
             display: inline-block;
             margin-right: 5px;
         }
+        /* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    /* Make spreads stack vertically on mobile */
+    .spread {
+        flex-direction: column;
+    }
+    .page {
+        width: 100%;
+    }
+    .page-right {
+        background-color: #e6f2ff;
+        border-top: 1px solid #b3d9ff;
+        margin-top: 10px;
+    }
+    
+    /* Increase touch target sizes */
+    .btn {
+        padding: 12px 20px;
+        margin: 10px 5px;
+    }
+    h2[role="button"] {
+        padding: 8px 0;
+    }
+    
+    /* Adjust font sizes for readability */
+    h1 {
+        font-size: 28px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* Adjust image containers */
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
     </style>
     <script>
         function toggleText(id) {
