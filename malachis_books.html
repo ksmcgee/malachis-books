@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malachi's Book of Firsts: My Birthday Trip Adventure</title>
+    <style>
+        body {
+            font-family: Garamond, serif;
+            background-color: #e6f5e6;
+            color: #333333;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0;
+            cursor: url('https://cur.cursors-4u.net/games/gam-16/gam1551.cur'), auto;
+        }
+        .book-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f0f8ff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .spread {
+            display: flex;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #b3d9ff;
+            padding-bottom: 20px;
+        }
+        .page {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .page:hover {
+            transform: scale(1.02);
+        }
+        .page-right {
+            background-color: #e6f2ff;
+        }
+        h1 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-size: 24px;
+            color: #333333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-size: 18px;
+            color: #1a75ff;
+            margin-top: 0;
+            cursor: pointer;
+        }
+        h2[role="button"]:hover, h2[role="button"]:focus {
+            color: #0052cc;
+            outline: 2px solid #4d94ff;
+        }
+        h2:hover {
+            color: #0052cc;
+        }
+        p {
+            font-size: 12pt;
+            margin-bottom: 15px;
+        }
+        .cover {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #4d94ff;
+            color: white;
+        }
+        .cover h1 {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .cover h2 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 40px;
+        }
+        .cover p {
+            font-style: italic;
+        }
+        .dedication {
+            text-align: center;
+            padding: 60px 20px;
+            font-style: italic;
+            background-color: #e6f2ff;
+        }
+        .image-container {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            padding: 10px;
+        }
+        .image-container:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+        }
+        .back-cover {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #4d94ff;
+            color: white;
+        }
+        .heart {
+            font-size: 40px;
+            color: #ff6666;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 16px;
+        }
+        .page-turner {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #4d94ff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: Garamond, serif;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0052cc;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .hidden {
+            display: none;
+        }
+        .dedication-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .dedication-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+        }
+        .dedication-overlay h2 {
+            color: #4d94ff;
+            margin-bottom: 15px;
+        }
+        .dedication-overlay p {
+            color: #333;
+            font-size: 14pt;
+        }
+        .voice-message {
+            background: linear-gradient(45deg, #4d94ff, #81b3ff);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: white;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .voice-message:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .voice-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            animation: pulse 2s infinite;
+        }
+        .audio-player {
+            width: 100%;
+            margin-top: 10px;
+            display: none;
+        }
+        .poem-spread {
+            position: relative;
+            background-image: url('auntkat_malachi.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .poem-page {
+            background-color: rgba(245, 245, 255, 0.85);
+            position: relative;
+            z-index: 1;
+        }
+        .poem-subtitle {
+            font-style: italic;
+            font-weight: normal;
+            color: #4d94ff;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+        .poem-content {
+            font-family: "Bookman Old Style", Georgia, serif;
+            line-height: 1.6;
+            font-size: 11pt;
+        }
+        .poem-content p {
+            margin-bottom: 20px;
+        }
+        .poem-signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 30px;
+        }
+        .content-text {
+            line-height: 1.5;
+        }
+        .content-text p {
+            margin-bottom: 10px;
+        }
+        .emoji-title {
+            display: inline-block;
+            margin-right: 5px;
+        }
+    </style>
+    <script>
+        function toggleText(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({behavior: "smooth"});
+        }
+        // Audio toggle: show/hide controls and play/pause
+        function toggleAudio(audioId) {
+            var audio = document.getElementById(audioId);
+            if (audio.style.display === "none" || audio.style.display === "") {
+                audio.style.display = "block";
+                audio.play();
+            } else {
+                audio.pause();
+                audio.style.display = "none";
+            }
+        }
+        // Keyboard accessibility for h2 toggles
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggles = document.querySelectorAll('h2[role="button"]');
+            toggles.forEach(function(h2) {
+                h2.addEventListener('keydown', function(e) {
+                    if (e.key === "Enter" || e.key === " ") {
+                        h2.click();
+                        e.preventDefault();
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="book-container">
+        <!-- COVER PAGE -->
+        <div class="cover" id="cover">
+            <div class="image-container">
+                <img src="Cover_Page.jpeg" alt="Family portrait">
+            </div>
+            <h1>MALACHI'S BOOK OF FIRSTS</h1>
+            <h2>MY BIRTHDAY TRIP ADVENTURE</h2>
+            <p>Written by Aunt Kat</p>
+            <div class="page-turner">
+                <button class="btn" onclick="scrollToSection('dedication')">Open Book</button>
+            </div>
+        </div>
+        <!-- DEDICATION PAGE -->
+        <div class="dedication" id="dedication">
+            <div class="image-container dedication-container">
+                <img src="Dedication_Page.jpeg" alt="Dedication page with decorative elements">
+                <div class="dedication-overlay">
+                    <h2>For Malachi,</h2>
+                    <p>Who makes every moment an adventure<br>
+                    and every memory a treasure.</p>
+                    <p>With all my love,<br>
+                    Aunt Kat</p>
+                </div>
+            </div>
+            <div class="voice-message" onclick="toggleAudio('dedication-audio')">
+                <div class="voice-icon">🎤</div>
+                <div>
+                    <h3>Listen to a special poem from Aunt Kat</h3>
+                    <p>Click to play/pause</p>
+                    <audio id="dedication-audio" controls preload="metadata" style="display:none;">
+                        <source src="Malachi.m4a" type="audio/mp4">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            <div class="page-turner">
+                <button class="btn" onclick="scrollToSection('poem')">Next Page</button>
+            </div>
+        </div>
+
+        <!-- POEM PAGE with background image -->
+        <div class="spread poem-spread" id="poem">
+            <div class="page poem-page">
+                <h2>💙 Malachi, My Forever First</h2>
+                <h3 class="poem-subtitle">(A letter carved in time)</h3>
+                <div class="poem-content">
+                    <p>I didn't know love could look like<br>
+                    chip crumbs on your shirt,<br>
+                    or wide eyes asking if this was real.<br>
+                    But then—<br>
+                    you saw me.<br>
+                    And the world tilted gently into place.</p>
+                    <p>You didn't run into my arms—<br>
+                    you froze.<br>
+                    As if the universe forgot how to move<br>
+                    until we were in the same frame.</p>
+                    <p>"Is this really happening?"<br>
+                    Baby, I was asking the same thing.<br>
+                    Because you were happening to me.</p>
+                    <p>You laughed like the world hadn't broken.<br>
+                    You shared your videos like kindness was a language.<br>
+                    You questioned everything—<br>
+                    not to challenge, but to understand.</p>
+                </div>
+            </div>
+            <div class="page page-right poem-page">
+                <div class="poem-content continued">
+                    <p>And I saw God<br>
+                    in the way you held joy like it might fly away,<br>
+                    and in the way you handed pieces of it<br>
+                    to every person around you.</p>
+                    <p>You, with your tiny questions<br>
+                    and your thunder-sized heart.<br>
+                    You made this trip sacred.<br>
+                    You turned every first into forever.</p>
+                    <p>The ferry ride,<br>
+                    the chip nap,<br>
+                    the questions,<br>
+                    Buc-ee's sandwiches (with too much BBQ sauce),<br>
+                    the sleepy rides,<br>
+                    the way your head found my shoulder<br>
+                    without asking for permission.</p>
+                    <p>You changed the way love feels.<br>
+                    You made it honest.<br>
+                    You made it loud.<br>
+                    You made it yours.</p>
+                    <p>Malachi,<br>
+                    this is not just a book.<br>
+                    This is a witness.<br>
+                    That we were here.<br>
+                    That you were here.<br>
+                    That you loved and were loved,<br>
+                    so deeply<br>
+                    that it could not be forgotten.</p>
+                    <p>I will carry you<br>
+                    in every sentence I ever write,<br>
+                    and every silence that deserves a boy like you in it.</p>
+                    <p class="poem-signature">Always and again,<br>
+                    Aunt Kat</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('moment')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 1 (PAGES 2-3) -->
+        <div class="spread" id="moment">
+            <div class="page">
+                <h2 onclick="toggleText('moment-text')" role="button" tabindex="0">THE MOMENT THAT CHANGED EVERYTHING</h2>
+                <div id="moment-text" class="content-text">
+                    <p>Malachi, I will never forget the look on your face when you saw me and Aunt Lydia standing together. Your whole body froze. Your mouth dropped open. Your eyes went so wide I thought they might pop right out of your head!</p>
+                    <p>"Wait... is that really Aunt Kat AND Aunt Lydia together?! This can't be real!"</p>
+                    <p>And then you did the most precious thing - you started pinching yourself, over and over, like you were trying to wake up from the most amazing dream. But baby, I was doing the same thing in my heart, because after all these years, I was finally here with you for your birthday trip.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="moment_surprise.png" alt="Surprised reaction scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('trampoline')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 2 (PAGES 4-5) -->
+        <div class="spread" id="trampoline">
+            <div class="page">
+                <h2 onclick="toggleText('trampoline-text')" role="button" tabindex="0">ADVENTURES AT THE TRAMPOLINE PARK</h2>
+                <div id="trampoline-text" class="content-text">
+                    <p>At the trampoline park, I couldn't take my eyes off you. Not because you jumped so high, but because of how you made every single kid feel like they mattered.</p>
+                    <p>I watched you notice a little girl who looked scared and walk right over to her. "Want to jump with me?" you asked, and suddenly she was giggling. You checked on the smaller kids, made sure no one felt left out, and your smile - oh, Malachi, your smile was like sunshine.</p>
+                    <p>Standing there watching you be kind to everyone, I felt so proud I could barely breathe. That's my nephew, I thought. That beautiful, caring boy is mine to love.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="trampoline_park.jpeg" alt="Joyful jumping scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('dinner')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 3 (PAGES 6-7) -->
+        <div class="spread" id="dinner">
+            <div class="page">
+                <h2 onclick="toggleText('dinner-text')" role="button" tabindex="0">DINNER DISCOVERIES</h2>
+                <div id="dinner-text" class="content-text">
+                    <p>You studied that menu like you were planning something very important, then announced with complete confidence: "I'll have the campfire chicken!"</p>
+                    <p>You attacked that chicken with pure joy, but when you hit those potatoes and carrots, your face was priceless:</p>
+                    <p>"Aunt Kat, these potatoes are way too hard and these carrots are way too soft! Who made these?"</p>
+                    <p>Even when you didn't like something, you were so polite about it. You didn't make a fuss or complain - you just stated the facts like a little food critic. That's who you are, Malachi - thoughtful and kind, even about disappointing vegetables.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="dinner_discoveries.jpeg" alt="Dining scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('car')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 4 (PAGES 8-9) -->
+        <div class="spread" id="car">
+            <div class="page">
+                <h2 onclick="toggleText('car-text')" role="button" tabindex="0">CAR RIDE MEMORIES</h2>
+                <div id="car-text" class="content-text">
+                    <p>In the backseat of that car, I witnessed something so precious I almost cried. I got to watch my nephew fall asleep, and it was like watching a little miracle unfold.</p>
+                    <p>You started sitting up straight, crunching those chips with determination. Then slowly, so slowly, gravity started winning. You slid down in your seat, the chips getting slower... and slower... until your hand just stopped moving.</p>
+                    <p>Then, just ten minutes later: "Y'all told me to take a nap, and I did!"</p>
+                    <p>You popped up like a jack-in-the-box, announcing your successful completion of nap time with the pride of someone who'd just climbed Mount Everest.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="car_ride_memories.jpeg" alt="Sleeping in car scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('questions')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 5 (PAGES 10-11) -->
+        <div class="spread" id="questions">
+            <div class="page">
+                <h2 onclick="toggleText('questions-text')" role="button" tabindex="0">QUESTIONS AND CURIOSITY</h2>
+                <div id="questions-text" class="content-text">
+                    <p>Your questions are my favorite thing about you, Malachi. They come like a gentle rain, constant and wonderful:</p>
+                    <p>"How does that work?" "Where are we going next?" "Can we do that?" "What would happen if...?" "Why do they make it that way?"</p>
+                    <p>Each question shows me the beautiful machinery of your mind - always turning, always wondering, always trying to understand this big, complicated world. You don't just ask questions; you ask the KIND of questions that make me think harder, see differently, remember what it's like to be amazed by everything.</p>
+                    <p>When you trust me with your questions, you're trusting me with your curiosity, and that's one of the greatest gifts anyone has ever given me.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="questions_and_curiosity.jpeg" alt="Neighborhood scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('sharing')">Next Page</button>
+        </div>
+        <!-- SPREAD 6 (PAGES 12-13) -->
+        <div class="spread" id="sharing">
+            <div class="page">
+                <h2 onclick="toggleText('sharing-text')" role="button" tabindex="0">SHARING WHAT YOU LOVE</h2>
+                <div id="sharing-text" class="content-text">
+                    <p>When you showed me your favorite YouTube videos, I fell in love with you all over again. In a world full of loud, mean, scary things, you choose:</p>
+                    <p>Baby animals taking their first steps. Puppies and kittens being adorable. Babies laughing at silly things. Videos that make you giggle without hurting anyone.</p>
+                    <p>"Aunt Kat, look at this one! Isn't this the cutest thing you've ever seen?"</p>
+                    <p>Your digital world is filled with gentleness, sweetness, and joy. That tells me everything I need to know about your heart, Malachi.</p>
+                    <p>You choose kindness over coolness, sweetness over shock, and that makes me believe the world is going to be okay as long as there are people like you in it.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="sharing_what_you_love.jpeg" alt="Family watching videos scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('ferry')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 7 (PAGES 14-15) - FERRY SECTION -->
+        <div class="spread" id="ferry">
+            <div class="page">
+                <h2 onclick="toggleText('ferry-text')" role="button" tabindex="0"><span class="emoji-title">🛳️</span> FERRY FIRSTS & FIRE HEAT</h2>
+                <div id="ferry-text" class="content-text">
+                    <p>Malachi, do you remember what you asked when we stepped onto that ferry?</p>
+                    <p>"Y'all did this for me?"</p>
+                    <p>Yes. We did.</p>
+                    <p>We rode up in the car, walked up to the deck like movie stars, and let the sea breeze mess up our edges—on purpose.</p>
+                    <p>The sun? That sun was not playing fair.</p>
+                    <p>It was hot like summer had something to prove.</p>
+                    <p>But you? You were glowing—squinting and smiling at the same time.</p>
+                    <p>We made it to the other side, walked more than half the pier,</p>
+                    <p>but the heat chased us like it had a mission.</p>
+                    <p>Still, it didn't steal your joy. Not even close.</p>
+                    <p>Malachi Fact #62: Ferry rides feel cooler when you know they were planned just for you.</p>
+                    <p>And yes, I'd do it again tomorrow just to see that look on your face.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="ferry.png" alt="Ferry ride scene 1">
+                </div>
+                <div class="image-container">
+                    <img src="ferry2.png" alt="Ferry ride scene 2">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('bucees')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 8 (PAGES 16-17) - BUC-EE'S SECTION -->
+        <div class="spread" id="bucees">
+            <div class="page">
+                <h2 onclick="toggleText('bucees-text')" role="button" tabindex="0"><span class="emoji-title">🐻‍❄️</span> BUC-EE'S: WHERE BRISKET MEETS SURPRISE</h2>
+                <div id="bucees-text" class="content-text">
+                    <p>Let me tell you something about your Aunt Lydia—</p>
+                    <p>she LOVES Buc-ee's.</p>
+                    <p>So when she said we had to go, I knew it was about to be a big deal.</p>
+                    <p>You walked in with eyes wide like you just discovered a gas station from outer space.</p>
+                    <p>"They sell THAT here?"</p>
+                    <p>Yes. Yes, they do.</p>
+                    <p>Beef jerky, taffy, stuffed animals the size of toddlers… and yes,</p>
+                    <p>Chopped brisket sandwiches.</p>
+                    <p>We got them for you to try, and you did—</p>
+                    <p>even though the sauce was too saucy for your tastebuds.</p>
+                    <p>"This got too much BBQ sauce. I don't like it."</p>
+                    <p>But you TRIED. And that made us proud.</p>
+                    <p>We brought the sandwiches back to the house, and even though the flavor wasn't your favorite,</p>
+                    <p>the moment was.</p>
+                    <p>Because trying new things—</p>
+                    <p>even saucy ones—</p>
+                    <p>is part of what makes an adventure unforgettable.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="bucees.png" alt="Buc-ee's visit scene 1">
+                </div>
+                <div class="image-container">
+                    <img src="inside_bucees.png" alt="Buc-ee's visit scene 2">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+           
+            <button class="btn" onclick="scrollToSection('extraordinary')">Next Page</button>
+        </div>
+
+        <!-- FINAL SPREAD (PAGES 18-19) -->
+        <div class="spread" id="extraordinary">
+            <div class="page">
+                <h2 onclick="toggleText('extraordinary-text')" role="button" tabindex="0">WHAT MAKES YOU EXTRAORDINARY</h2>
+                <div id="extraordinary-text" class="content-text">
+                    <p>Malachi, you are not just a good kid. You are an extraordinary human.</p>
+                    <p>You care about others. You ask questions. You try new things. You laugh with your whole body. You make people feel seen and loved.</p>
+                    <p>That is what makes you unforgettable. That is what makes you my forever first.</p>
+                    <p>Thank you for letting me be part of your adventure. Thank you for loving me back.</p>
+                    <p>Always and forever,<br>
+                    Aunt Kat</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="extraordinary.jpeg" alt="Malachi smiling">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('backcover')">Back Cover</button>
+        </div>
+
+        <!-- BACK COVER -->
+        <div class="back-cover" id="backcover">
+            <div class="heart">❤️</div>
+            <h1>THE END<br>...FOR NOW</h1>
+            <p class="quote">"May you always know how loved you are, and may your adventures never end."</p>
+            <div class="image-container">
+                <img src="Back_Cover.jpeg" alt="Back cover illustration">
+            </div>
+            <div class="page-turner">
+                <button class="btn" onclick="scrollToSection('cover')">Read Again</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

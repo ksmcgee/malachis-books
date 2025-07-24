@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malachi's Book of Firsts: My Birthday Trip Adventure</title>
+    <style>
+        body {
+            font-family: Garamond, serif;
+            background-color: #e6f2ff; /* Light blue background */
+            color: #333333;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0;
+        }
+        .book-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f0f8ff; /* Slightly different blue for container */
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .spread {
+            display: flex;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #b3d9ff;
+            padding-bottom: 20px;
+        }
+        .page {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease; /* For hover effect */
+        }
+        .page:hover {
+            transform: scale(1.02); /* Slight zoom on hover */
+        }
+        .page-right {
+            background-color: #e6f2ff;
+        }
+        h1 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-size: 24px;
+            color: #333333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-size: 18px;
+            color: #1a75ff; /* Blue heading color */
+            margin-top: 0;
+            cursor: pointer; /* Shows it's clickable */
+        }
+        h2:hover {
+            color: #0052cc; /* Darker blue on hover */
+        }
+        p {
+            font-size: 12pt;
+            margin-bottom: 15px;
+        }
+        .cover {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #4d94ff; /* Brighter blue for cover */
+            color: white;
+        }
+        .cover h1 {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .cover h2 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 40px;
+        }
+        .cover p {
+            font-style: italic;
+        }
+        .dedication {
+            text-align: center;
+            padding: 60px 20px;
+            font-style: italic;
+            background-color: #e6f2ff;
+        }
+        .image-container {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .image-container:hover {
+            transform: scale(1.03); /* Slight zoom on hover */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+        }
+        .back-cover {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #4d94ff;
+            color: white;
+        }
+        .heart {
+            font-size: 40px;
+            color: #ff6666;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite; /* Pulsing heart animation */
+        }
+        .quote {
+            font-style: italic;
+            font-size: 16px;
+        }
+        /* Interactive elements */
+        .page-turner {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #4d94ff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: Garamond, serif;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0052cc;
+        }
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        // Simple interactive functions
+        function toggleText(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+        
+        // For page navigation
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({behavior: "smooth"});
+        }
+    </script>
+</head>
+<body>
+    <div class="book-container">
+        <!-- COVER PAGE -->
+        <div class="cover" id="cover">
+            <div class="image-container">
+                <img src="Cover_Page.jpeg" alt="Family portrait">
+            </div>
+            <h1>MALACHI'S BOOK OF FIRSTS</h1>
+            <h2>MY BIRTHDAY TRIP ADVENTURE</h2>
+            <p>Written by Aunt Kat</p>
+            <div class="page-turner">
+                <button class="btn" onclick="scrollToSection('dedication')">Open Book</button>
+            </div>
+        </div>
+
+        <!-- DEDICATION PAGE -->
+        <div class="dedication" id="dedication">
+            <div class="image-container">
+                <img src="Dedication_Page.jpeg" alt="Dedication page with decorative elements">
+            </div>
+            <h2>For Malachi,</h2>
+            <p>Who makes every moment an adventure<br>
+            and every memory a treasure.</p>
+            <p>With all my love,<br>
+            Aunt Kat</p>
+            <div class="page-turner">
+                <button class="btn" onclick="scrollToSection('moment')">Next Page</button>
+            </div>
+        </div>
+
+        <!-- SPREAD 1 (PAGES 2-3) -->
+        <div class="spread" id="moment">
+            <div class="page">
+                <h2 onclick="toggleText('moment-text')">THE MOMENT THAT CHANGED EVERYTHING</h2>
+                <div id="moment-text">
+                    <p>Malachi, I will never forget the look on your face when you saw me and Aunt Lydia standing together. Your whole body froze. Your mouth dropped open. Your eyes went so wide I thought they might pop right out of your head!</p>
+                    <p>"Wait... is that really Aunt Kat AND Aunt Lydia together?! This can't be real!"</p>
+                    <p>And then you did the most precious thing - you started pinching yourself, over and over, like you were trying to wake up from the most amazing dream. But baby, I was doing the same thing in my heart, because after all these years, I was finally here with you for your birthday trip.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="questions_and_curiosity.jpeg" alt="Surprised reaction scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('trampoline')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 2 (PAGES 4-5) -->
+        <div class="spread" id="trampoline">
+            <div class="page">
+                <h2 onclick="toggleText('trampoline-text')">ADVENTURES AT THE TRAMPOLINE PARK</h2>
+                <div id="trampoline-text">
+                    <p>At the trampoline park, I couldn't take my eyes off you. Not because you jumped so high, but because of how you made every single kid feel like they mattered.</p>
+                    <p>I watched you notice a little girl who looked scared and walk right over to her. "Want to jump with me?" you asked, and suddenly she was giggling. You checked on the smaller kids, made sure no one felt left out, and your smile - oh, Malachi, your smile was like sunshine.</p>
+                    <p>Standing there watching you be kind to everyone, I felt so proud I could barely breathe. That's my nephew, I thought. That beautiful, caring boy is mine to love.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="Trampoline_park.jpeg" alt="Joyful jumping scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('dinner')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 3 (PAGES 6-7) -->
+        <div class="spread" id="dinner">
+            <div class="page">
+                <h2 onclick="toggleText('dinner-text')">DINNER DISCOVERIES</h2>
+                <div id="dinner-text">
+                    <p>You studied that menu like you were planning something very important, then announced with complete confidence: "I'll have the campfire chicken!"</p>
+                    <p>You attacked that chicken with pure joy, but when you hit those potatoes and carrots, your face was priceless:</p>
+                    <p>"Aunt Kat, these potatoes are way too hard and these carrots are way too soft! Who made these?"</p>
+                    <p>Even when you didn't like something, you were so polite about it. You didn't make a fuss or complain - you just stated the facts like a little food critic. That's who you are, Malachi - thoughtful and kind, even about disappointing vegetables.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="Dinner_discoveries.jpeg" alt="Dining scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('car')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 4 (PAGES 8-9) -->
+        <div class="spread" id="car">
+            <div class="page">
+                <h2 onclick="toggleText('car-text')">CAR RIDE MEMORIES</h2>
+                <div id="car-text">
+                    <p>In the backseat of that car, I witnessed something so precious I almost cried. I got to watch my nephew fall asleep, and it was like watching a little miracle unfold.</p>
+                    <p>You started sitting up straight, crunching those chips with determination. Then slowly, so slowly, gravity started winning. You slid down in your seat, the chips getting slower... and slower... until your hand just stopped moving.</p>
+                    <p>Then, just ten minutes later: "Y'all told me to take a nap, and I did!"</p>
+                    <p>You popped up like a jack-in-the-box, announcing your successful completion of nap time with the pride of someone who'd just climbed Mount Everest.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="Car_ride_memories.jpeg" alt="Sleeping in car scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('questions')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 5 (PAGES 10-11) -->
+        <div class="spread" id="questions">
+            <div class="page">
+                <h2 onclick="toggleText('questions-text')">QUESTIONS AND CURIOSITY</h2>
+                <div id="questions-text">
+                    <p>Your questions are my favorite thing about you, Malachi. They come like a gentle rain, constant and wonderful:</p>
+                    <p>"How does that work?" "Where are we going next?" "Can we do that?" "What would happen if...?" "Why do they make it that way?"</p>
+                    <p>Each question shows me the beautiful machinery of your mind - always turning, always wondering, always trying to understand this big, complicated world. You don't just ask questions; you ask the KIND of questions that make me think harder, see differently, remember what it's like to be amazed by everything.</p>
+                    <p>When you trust me with your questions, you're trusting me with your curiosity, and that's one of the greatest gifts anyone has ever given me.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="questions_and_curiosity.jpeg" alt="Neighborhood scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('sharing')">Next Page</button>
+        </div>
+
+        <!-- SPREAD 6 (PAGES 12-13) -->
+        <div class="spread" id="sharing">
+            <div class="page">
+                <h2 onclick="toggleText('sharing-text')">SHARING WHAT YOU LOVE</h2>
+                <div id="sharing-text">
+                    <p>When you showed me your favorite YouTube videos, I fell in love with you all over again. In a world full of loud, mean, scary things, you choose:</p>
+                    <p>Baby animals taking their first steps. Puppies and kittens being adorable. Babies laughing at silly things. Videos that make you giggle without hurting anyone.</p>
+                    <p>"Aunt Kat, look at this one! Isn't this the cutest thing you've ever seen?"</p>
+                    <p>Your digital world is filled with gentleness, sweetness, and joy. That tells me everything I need to know about your heart, Malachi.</p>
+                    <p>You choose kindness over coolness, sweetness over shock, and that makes me believe the world is going to be okay as long as there are people like you in it.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="Sharing_what_youLove.jpeg" alt="Family watching videos scene">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('extraordinary')">Next Page</button>
+        </div>
+
+        <!-- FINAL SPREAD (PAGES 14-15) -->
+        <div class="spread" id="extraordinary">
+            <div class="page">
+                <h2 onclick="toggleText('extraordinary-text')">WHAT MAKES YOU EXTRAORDINARY</h2>
+                <div id="extraordinary-text">
+                    <p>Malachi, when I look at you, I see:</p>
+                    <p>A boy who shows COMPASSION to everyone - from scared kids at trampoline parks to busy servers at restaurants.</p>
+                    <p>Someone who is naturally MANNERABLE - never demanding, always grateful, always thinking about how your actions affect others.</p>
+                    <p>A person with an AMAZING PERSONALITY that makes everyone want to be around you. You don't try to be cool or tough; you just try to be good.</p>
+                    <p>Most of all, I see someone who loves deeply - animals, babies, family, friends. Your heart is a safe place for anyone who needs kindness.</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="What_makes_you_Extraordinary.jpeg" alt="Extraordinary qualities">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('book-asked')">Next Page</button>
+        </div>
+
+        <!-- BOOK YOU ASKED FOR SPREAD -->
+        <div class="spread" id="book-asked">
+            <div class="page">
+                <h2 onclick="toggleText('book-asked-text')">THE BOOK YOU ASKED FOR</h2>
+                <div id="book-asked-text">
+                    <p>"Will you write a book about our time together?"</p>
+                    <p>When you asked me that, my heart nearly stopped. Because you understood something that took me years to learn - that the most precious moments deserve to be preserved, celebrated, remembered.</p>
+                    <p>Happy Birthday Trip, Malachi!</p>
+                    <p>Being your Aunt Kat is the greatest privilege of my life. I love you bigger than the sky, deeper than the ocean, longer than forever.</p>
+                    <p>Always and always and always,<br>
+                    Your Aunt Kat 💙</p>
+                </div>
+            </div>
+            <div class="page page-right">
+                <div class="image-container">
+                    <img src="Book_you_asked_for.jpeg" alt="Book you asked for">
+                </div>
+            </div>
+        </div>
+        <div class="page-turner">
+            <button class="btn" onclick="scrollToSection('back-cover')">Final Page</button>
+        </div>
+
+        <!-- BACK COVER -->
+        <div class="back-cover" id="back-cover">
+            <div class="image-container">
+                <img src="back_cover.jpeg" alt="Back cover">
+            </div>
+            <div class="heart">❤️</div>
+            <p class="quote">"You are the most wonderful surprise of my entire life."</p>
+            <div class="page-turner">
+                <button class="btn" onclick="scrollToSection('cover')">Back to Start</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
