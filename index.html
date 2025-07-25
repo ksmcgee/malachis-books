@@ -245,7 +245,7 @@ F<!DOCTYPE html>
             display: inline-block;
             margin-right: 5px;
         }
-        /* Mobile Responsive Adjustments */
+ /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
     /* Make spreads stack vertically on mobile */
     .spread {
@@ -286,7 +286,26 @@ F<!DOCTYPE html>
         max-width: 100%;
         height: auto;
     }
+    
+    /* Fix for poem background */
+    .poem-spread {
+        background-size: contain;  /* Change from cover to contain */
+        background-repeat: no-repeat;
+        background-position: center top;
+        padding-top: 30%; /* Add some padding at top to accommodate image */
+    }
+    
+    .poem-page {
+        background-color: rgba(245, 245, 255, 0.92); /* Make background more opaque */
+    }
+    
+    /* If text is hard to read, increase contrast */
+    .poem-content {
+        color: #000033; /* Darker text color */
+        text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.8); /* Text outline */
+    }
 }
+
 /* Audio narration styling */
 .audio-narration {
     background: linear-gradient(45deg, #4d94ff, #81b3ff);
