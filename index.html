@@ -529,21 +529,16 @@
         <div class="page-turner">
             <button class="btn" onclick="scrollToSection('moment')">Next Page</button>
         </div>
-
-        <!-- SPREAD 1 (PAGES 2-3) -->
-        <div class="spread" id="moment">
-            <div class="page">
-                <h2 onclick="toggleText('moment-text')" role="button" tabindex="0">THE MOMENT THAT CHANGED EVERYTHING</h2>
         <!-- Add audio player here -->
         <div class="audio-narration">
-            <button id="moment_surprise-audio-button" class="audio-button" onclick="toggleAudioPlayer('moment_surprise-audio')">
-                <span class="audio-icon">🔊</span> Listen to Aunt Kat
-            </button>
-            <audio id="moment_surprise-audio" preload="metadata">
-                <source src="moment_surprise.m4a" type="audio/mp4">
-                Your browser does not support audio playback.
-            </audio>
-        </div>
+        <button id="moment_surprise-audio-button" class="audio-button" onclick="toggleAudioPlayer('moment_surprise-audio')">
+        <span class="audio-icon">🔊</span> Listen to Aunt Kat
+    </button>
+    <audio id="moment_surprise-audio" controls preload="metadata" style="display:none;">
+        <source src="moment_surprise.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+    </audio>
+</div>
                 <div id="moment-text" class="content-text">
                     <p>Malachi, I will never forget the look on your face when you saw me and Aunt Lydia standing together. Your whole body froze. Your mouth dropped open. Your eyes went so wide I thought they might pop right out of your head!</p>
                     <p>"Wait... is that really Aunt Kat AND Aunt Lydia together?! This can't be real!"</p>
