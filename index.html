@@ -660,6 +660,18 @@
         <div class="spread" id="questions">
             <div class="page">
                 <h2 onclick="toggleText('questions-text')" role="button" tabindex="0">QUESTIONS AND CURIOSITY</h2>
+
+<!-- Add audio player here -->
+<div class="audio-narration">
+    <button id="questions_and_curiosity-audio-button" class="audio-button" onclick="toggleAudioPlayer('questions_and_curiosity-audio')">
+        <span class="audio-icon">🔊</span> Listen to Aunt Kat
+    </button>
+    <audio id="questions_and_curiosity-audio" controls preload="metadata" style="display:none;">
+        <source src="Questions_and_curiosity.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+    </audio>
+</div>
+
                 <div id="questions-text" class="content-text">
                     <p>Your questions are my favorite thing about you, Malachi. They come like a gentle rain, constant and wonderful:</p>
                     <p>"How does that work?" "Where are we going next?" "Can we do that?" "What would happen if...?" "Why do they make it that way?"</p>
