@@ -341,42 +341,74 @@
     }
 }
 </style>
-    <script>
-        function toggleText(id) {
-            var element = document.getElementById(id);
-            if (element.style.display === "none" || element.style.display === "") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
+ <script>
+    function toggleText(id) {
+        var element = document.getElementById(id);
+        if (element.style.display === "none" || element.style.display === "") {
+            element.style.display = "block";
+        } else {
+            element.style.display = "none";
         }
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({behavior: "smooth"});
+    }
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({behavior: "smooth"});
+    }
+    // Audio toggle: show/hide controls and play/pause
+    function toggleAudio(audioId) {
+        var audio = document.getElementById(audioId);
+        if (audio.style.display === "none" || audio.style.display === "") {
+            audio.style.display = "block";
+            audio.play();
+        } else {
+            audio.pause();
+            audio.style.display = "none";
         }
-        // Audio toggle: show/hide controls and play/pause
-        function toggleAudio(audioId) {
-            var audio = document.getElementById(audioId);
-            if (audio.style.display === "none" || audio.style.display === "") {
-                audio.style.display = "block";
-                audio.play();
-            } else {
-                audio.pause();
-                audio.style.display = "none";
-            }
-        }
-        // Keyboard accessibility for h2 toggles
-        document.addEventListener('DOMContentLoaded', function() {
-            var toggles = document.querySelectorAll('h2[role="button"]');
-            toggles.forEach(function(h2) {
-                h2.addEventListener('keydown', function(e) {
-                    if (e.key === "Enter" || e.key === " ") {
-                        h2.click();
-                        e.preventDefault();
-                    }
-                });
+    }
+    // Keyboard accessibility for h2 toggles
+    document.addEventListener('DOMContentLoaded', function() {
+        var toggles = document.querySelectorAll('h2[role="button"]');
+        toggles.forEach(function(h2) {
+            h2.addEventListener('keydown', function(e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    h2.click();
+                    e.preventDefault();
+                }
             });
         });
-    </script>
+    });
+    
+    // New function for audio players
+    function toggleAudioPlayer(audioId) {
+        var audio = document.getElementById(audioId);
+        var button = document.getElementById(audioId + '-button');
+        
+        // Stop all other audio players first
+        var allAudios = document.querySelectorAll('audio');
+        allAudios.forEach(function(player) {
+            if (player.id !== audioId && !player.paused) {
+                player.pause();
+                var otherButton = document.getElementById(player.id + '-button');
+                if (otherButton) {
+                    otherButton.innerHTML = '<span class="audio-icon">🔊</span> Listen to Aunt Kat';
+                }
+                player.style.display = 'none';
+            }
+        });
+        
+        // Toggle current audio
+        if (audio.paused || audio.style.display === 'none') {
+            audio.style.display = 'block';
+            setTimeout(function() {
+                audio.play();
+                button.innerHTML = '<span class="audio-icon">⏸️</span> Pause';
+            }, 100);
+        } else {
+            audio.pause();
+            button.innerHTML = '<span class="audio-icon">▶️</span> Continue';
+            // Don't hide the player when paused
+        }
+    }
+</script>
 </head>
 <body>
     <div class="book-container">
