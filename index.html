@@ -341,7 +341,7 @@
     }
 }
 </style>
- <script>
+<script>
     function toggleText(id) {
         var element = document.getElementById(id);
         if (element.style.display === "none" || element.style.display === "") {
@@ -350,9 +350,11 @@
             element.style.display = "none";
         }
     }
+    
     function scrollToSection(id) {
         document.getElementById(id).scrollIntoView({behavior: "smooth"});
     }
+    
     // Audio toggle: show/hide controls and play/pause
     function toggleAudio(audioId) {
         var audio = document.getElementById(audioId);
@@ -364,6 +366,7 @@
             audio.style.display = "none";
         }
     }
+    
     // Keyboard accessibility for h2 toggles
     document.addEventListener('DOMContentLoaded', function() {
         var toggles = document.querySelectorAll('h2[role="button"]');
@@ -377,7 +380,7 @@
         });
     });
     
-    // New function for audio players
+    // Updated function for audio players
     function toggleAudioPlayer(audioId) {
         var audio = document.getElementById(audioId);
         var button = document.getElementById(audioId + '-button');
@@ -387,25 +390,34 @@
         allAudios.forEach(function(player) {
             if (player.id !== audioId && !player.paused) {
                 player.pause();
+                player.currentTime = 0; // Reset to beginning
                 var otherButton = document.getElementById(player.id + '-button');
                 if (otherButton) {
                     otherButton.innerHTML = '<span class="audio-icon">🔊</span> Listen to Aunt Kat';
                 }
-                player.style.display = 'none';
             }
         });
         
         // Toggle current audio
-        if (audio.paused || audio.style.display === 'none') {
-            audio.style.display = 'block';
-            setTimeout(function() {
-                audio.play();
-                button.innerHTML = '<span class="audio-icon">⏸️</span> Pause';
-            }, 100);
+        if (audio.paused) {
+            // Try to play
+            var playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(function() {
+                    // Playback started successfully
+                    button.innerHTML = '<span class="audio-icon">⏸️</span> Pause';
+                }).catch(function(error) {
+                    // Auto-play was prevented
+                    console.log("Playback prevented:", error);
+                    // Show play button since play failed
+                    button.innerHTML = '<span class="audio-icon">▶️</span> Play';
+                });
+            }
         } else {
+            // Pause the audio
             audio.pause();
-            button.innerHTML = '<span class="audio-icon">▶️</span> Continue';
-            // Don't hide the player when paused
+            button.innerHTML = '<span class="audio-icon">▶️</span> Play';
         }
     }
 </script>
