@@ -628,6 +628,17 @@
         <div class="spread" id="car">
             <div class="page">
                 <h2 onclick="toggleText('car-text')" role="button" tabindex="0">CAR RIDE MEMORIES</h2>
+<!-- Add audio player here -->
+<div class="audio-narration">
+    <button id="car_ride_memories-audio-button" class="audio-button" onclick="toggleAudioPlayer('car_ride_memories-audio')">
+        <span class="audio-icon">🔊</span> Listen to Aunt Kat
+    </button>
+    <audio id="car_ride_memories-audio" controls preload="metadata" style="display:none;">
+        <source src="Car_ride_memories.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+    </audio>
+</div>
+
                 <div id="car-text" class="content-text">
                     <p>In the backseat of that car, I witnessed something so precious I almost cried. I got to watch my nephew fall asleep, and it was like watching a little miracle unfold.</p>
                     <p>You started sitting up straight, crunching those chips with determination. Then slowly, so slowly, gravity started winning. You slid down in your seat, the chips getting slower... and slower... until your hand just stopped moving.</p>
