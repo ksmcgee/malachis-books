@@ -726,6 +726,18 @@
         <div class="spread" id="ferry">
             <div class="page">
                 <h2 onclick="toggleText('ferry-text')" role="button" tabindex="0"><span class="emoji-title">🛳️</span> FERRY FIRSTS & FIRE HEAT</h2>
+
+<!-- Add audio player here -->
+<div class="audio-narration">
+    <button id="ferry-audio-button" class="audio-button" onclick="toggleAudioPlayer('ferry-audio')">
+        <span class="audio-icon">🔊</span> Listen to Aunt Kat
+    </button>
+    <audio id="ferry-audio" controls preload="metadata" style="display:none;">
+        <source src="Ferry.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+    </audio>
+</div>
+
                 <div id="ferry-text" class="content-text">
                     <p>Malachi, do you remember what you asked when we stepped onto that ferry?</p>
                     <p>"Y'all did this for me?"</p>
