@@ -853,6 +853,17 @@ F<!DOCTYPE html>
         <div class="back-cover" id="backcover">
             <div class="heart">❤️</div>
             <h1>THE END<br>...FOR NOW</h1>
+<!-- Add audio player here -->
+<div class="audio-narration">
+    <button id="back_cover-audio-button" class="audio-button" onclick="toggleAudioPlayer('back_cover-audio')">
+        <span class="audio-icon">🔊</span> Listen to Aunt Kat
+    </button>
+    <audio id="back_cover-audio" controls preload="metadata" style="display:none;">
+        <source src="back_cover.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+    </audio>
+</div>
+
             <p class="quote">"May you always know how loved you are, and may your adventures never end."</p>
             <div class="image-container">
                 <img src="back_cover.jpeg" alt="Back cover illustration">
