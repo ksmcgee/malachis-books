@@ -692,6 +692,18 @@
         <div class="spread" id="sharing">
             <div class="page">
                 <h2 onclick="toggleText('sharing-text')" role="button" tabindex="0">SHARING WHAT YOU LOVE</h2>
+
+<!-- Add audio player here -->
+<div class="audio-narration">
+    <button id="sharing_what_you_love-audio-button" class="audio-button" onclick="toggleAudioPlayer('sharing_what_you_love-audio')">
+        <span class="audio-icon">🔊</span> Listen to Aunt Kat
+    </button>
+    <audio id="sharing_what_you_love-audio" controls preload="metadata" style="display:none;">
+        <source src="sharing_what_you_love.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+    </audio>
+</div>
+
                 <div id="sharing-text" class="content-text">
                     <p>When you showed me your favorite YouTube videos, I fell in love with you all over again. In a world full of loud, mean, scary things, you choose:</p>
                     <p>Baby animals taking their first steps. Puppies and kittens being adorable. Babies laughing at silly things. Videos that make you giggle without hurting anyone.</p>
