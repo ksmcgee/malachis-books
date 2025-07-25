@@ -819,6 +819,17 @@ F<!DOCTYPE html>
         <div class="spread" id="extraordinary">
             <div class="page">
                 <h2 onclick="toggleText('extraordinary-text')" role="button" tabindex="0">WHAT MAKES YOU EXTRAORDINARY</h2>
+<!-- Add audio player here -->
+<div class="audio-narration">
+    <button id="extraordinary-audio-button" class="audio-button" onclick="toggleAudioPlayer('extraordinary-audio')">
+        <span class="audio-icon">🔊</span> Listen to Aunt Kat
+    </button>
+    <audio id="extraordinary-audio" controls preload="metadata" style="display:none;">
+        <source src="Extraordinary.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+    </audio>
+</div>
+
                 <div id="extraordinary-text" class="content-text">
                     <p>Malachi, you are not just a good kid. You are an extraordinary human.</p>
                     <p>You care about others. You ask questions. You try new things. You laugh with your whole body. You make people feel seen and loved.</p>
