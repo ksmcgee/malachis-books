@@ -592,11 +592,21 @@
         <div class="page-turner">
             <button class="btn" onclick="scrollToSection('dinner')">Next Page</button>
         </div>
-
-        <!-- SPREAD 3 (PAGES 6-7) -->
-        <div class="spread" id="dinner">
-            <div class="page">
-                <h2 onclick="toggleText('dinner-text')" role="button" tabindex="0">DINNER DISCOVERIES</h2>
+<!-- SPREAD 3 (PAGES 6-7) -->
+<div class="spread" id="dinner">
+    <div class="page">
+        <h2 onclick="toggleText('dinner-text')" role="button" tabindex="0">DINNER DISCOVERIES</h2>
+        
+        <!-- Add audio player here -->
+        <div class="audio-narration">
+            <button id="dinner_discoveries-audio-button" class="audio-button" onclick="toggleAudioPlayer('dinner_discoveries-audio')">
+                <span class="audio-icon">🔊</span> Listen to Aunt Kat
+            </button>
+            <audio id="dinner_discoveries-audio" controls preload="metadata" style="display:none;">
+                <source src="Dinner_discoveries.m4a" type="audio/mp4">
+                Your browser does not support audio playback.
+            </audio>
+        </div>
                 <div id="dinner-text" class="content-text">
                     <p>You studied that menu like you were planning something very important, then announced with complete confidence: "I'll have the campfire chicken!"</p>
                     <p>You attacked that chicken with pure joy, but when you hit those potatoes and carrots, your face was priceless:</p>
