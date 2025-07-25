@@ -552,6 +552,16 @@
         <div class="spread" id="trampoline">
             <div class="page">
                 <h2 onclick="toggleText('trampoline-text')" role="button" tabindex="0">ADVENTURES AT THE TRAMPOLINE PARK</h2>
+         <!-- Add audio player here -->
+        <div class="audio-narration">
+            <button id="Trampoline_park-audio-button" class="audio-button" onclick="toggleAudioPlayer('trampoline_park-audio')">
+                <span class="audio-icon">🔊</span> Listen to Aunt Kat
+            </button>
+            <audio id="trampoline_park-audio" preload="metadata">
+                <source src="Trampoline_park.m4a" type="audio/mp4">
+                Your browser does not support audio playback.
+            </audio>
+        </div>
                 <div id="trampoline-text" class="content-text">
                     <p>At the trampoline park, I couldn't take my eyes off you. Not because you jumped so high, but because of how you made every single kid feel like they mattered.</p>
                     <p>I watched you notice a little girl who looked scared and walk right over to her. "Want to jump with me?" you asked, and suddenly she was giggling. You checked on the smaller kids, made sure no one felt left out, and your smile - oh, Malachi, your smile was like sunshine.</p>
