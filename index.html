@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+F<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -770,6 +770,17 @@
         <div class="spread" id="bucees">
             <div class="page">
                 <h2 onclick="toggleText('bucees-text')" role="button" tabindex="0"><span class="emoji-title">🐻‍❄️</span> BUC-EE'S: WHERE BRISKET MEETS SURPRISE</h2>
+<!-- Add audio player here -->
+<div class="audio-narration">
+    <button id="bucees-audio-button" class="audio-button" onclick="toggleAudioPlayer('bucees-audio')">
+        <span class="audio-icon">🔊</span> Listen to Aunt Kat
+    </button>
+    <audio id="bucees-audio" controls preload="metadata" style="display:none;">
+        <source src="Bucees.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+    </audio>
+</div>
+
                 <div id="bucees-text" class="content-text">
                     <p>Let me tell you something about your Aunt Lydia—</p>
                     <p>she LOVES Buc-ee's.</p>
