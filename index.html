@@ -287,8 +287,60 @@
         height: auto;
     }
 }
+/* Audio narration styling */
+.audio-narration {
+    background: linear-gradient(45deg, #4d94ff, #81b3ff);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: white;
+}
 
-    </style>
+.audio-button {
+    background-color: white;
+    color: #4d94ff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    width: 80%;
+    max-width: 250px;
+    margin: 10px auto;
+}
+
+.audio-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.audio-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.audio-narration audio {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 30px;
+}
+
+@media (max-width: 768px) {
+    .audio-button {
+        padding: 12px 20px;
+        font-size: 18px;
+    }
+}
+</style>
     <script>
         function toggleText(id) {
             var element = document.getElementById(id);
